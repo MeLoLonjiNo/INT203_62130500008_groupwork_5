@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+</head>
+<body style="font-family: 'Quicksand', sans-serif;" class="bg-gray-800">
+<!-- <body class="bg-gradient-to-r from-purple-200 to-pink-100"> -->
+  <div id="app" class="bg-white mx-20 my-10 pt-4 pb-8 rounded-xl">
+  
+  <h1 class=" pt-8 mb-10 text-4xl font-bold tracking-tighter text-center text-blue-800 lg:text-center lg:text-5xl title-font">
+    My Games Gallery ({{countItem}})
+  </h1>
+  <h2 class="mt-8 mb-10 text-2xl font-bold tracking-tighter text-center text-blue-800 lg:text-center lg:text-3xl title-font">
+    Like ({{countDone}})
+  </h2>
+
+  <task-search :tasks="tasks" @search-text='searchText'></task-search>
+
+  <task-view :tasks="tasks" :menu-id="currentIndex" :show-images="show" @close-image="closeImage"></task-view>
+
+  <task-list :tasks="tasks" :not-found="notFound" :search-menu="searchMenu" 
+  @img-clicked="imgClicked" @show-images="showImages" ></task-list>               
+  
+</div>
+  <!-- my main.js -->
+  <script src="./main.js"></script>
+  <script src="./components/PhotoItem.js"></script>
+  <script src="./components/PhotoSearch.js"></script>
+  <script src="./components/PhotoView.js"></script>
+  <script>
+    const mountedApp = app.mount('#app')
+  </script>
+</body>
+</html>
